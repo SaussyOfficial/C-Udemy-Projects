@@ -22,22 +22,32 @@ using namespace std;
 
 int main() {
 	cout << "Hello, welcome to Frank's Carpet Cleaning Service" << endl;
-	cout << "\nHow many rooms would you like cleaned?" << endl;
+	cout << "\nHow many large rooms would you like cleaned?" << endl;
 
-	int numberOfRooms{};
-	cin >> numberOfRooms;
+	int numberOfLargeRooms{};
+	cin >> numberOfLargeRooms;
 
-	const double pricePerRoom{ 30.0 };
+	cout << "\nHow many small rooms would you like cleaned? " << endl;
+
+	int numberOfSmallRooms{};
+	cin >> numberOfSmallRooms;
+
+	const double pricePerLargeRoom{ 35.0 };
+	const double pricePerSmallRoom{ 25.0 };
 	const double salesTax{ 0.06 };
 	const int estimateExpiry{ 30 };
+	int subTotal = (pricePerSmallRoom * numberOfSmallRooms + pricePerLargeRoom * numberOfLargeRooms);
+	double finalCost = (subTotal * salesTax + subTotal);
 
 	cout << "\nEstimate for carpet cleaning service" << endl;
-	cout << "Number of rooms: " << numberOfRooms << endl;
-	cout << "Price per room: $" << pricePerRoom << endl;
-	cout << "Cost: $" << pricePerRoom * numberOfRooms << endl;
-	cout << "Tax: $" << pricePerRoom * numberOfRooms * salesTax << endl;
+	cout << "Number of  large rooms: " << numberOfLargeRooms << endl;
+	cout << "Number of small rooms: " << numberOfSmallRooms << endl;
+	cout << "Price per large room: $" << pricePerLargeRoom << endl;
+	cout << "Price per small room: $" << pricePerSmallRoom << endl;
+	cout << "Cost: $" << (pricePerLargeRoom * numberOfLargeRooms) + (pricePerSmallRoom * numberOfSmallRooms) << endl;
+	cout << "Tax: $" << (pricePerLargeRoom * numberOfLargeRooms * salesTax) + (pricePerSmallRoom * numberOfSmallRooms * salesTax) << endl;
 	cout << "==========================================" << endl;
-	cout << "Total estimate: $" << (pricePerRoom * numberOfRooms) + (pricePerRoom * numberOfRooms * salesTax) << endl;
+	cout << "Total estimate: $" << finalCost << endl;
 	cout << "This estimate is valid for " << estimateExpiry << " days." << endl;
 
 
